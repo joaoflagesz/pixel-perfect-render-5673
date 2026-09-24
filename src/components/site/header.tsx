@@ -68,12 +68,12 @@ export function Header() {
             </span>
           </a>
 
-          <nav className="hidden items-center gap-7 lg:flex">
+          <nav className="hidden items-center gap-6 lg:flex xl:gap-7">
             {clinic.nav.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="relative text-sm font-medium text-foreground/75 transition-colors hover:text-primary"
+                className="relative text-sm font-medium whitespace-nowrap text-foreground/75 transition-colors hover:text-primary"
               >
                 {item.label}
               </a>
@@ -83,7 +83,7 @@ export function Header() {
           <div className="hidden items-center gap-2 lg:flex">
             <a
               href={clinic.contact.phoneHref}
-              className="inline-flex items-center gap-2 rounded-full border border-primary/25 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-secondary"
+              className="inline-flex items-center gap-2 rounded-full border border-primary/25 px-4 py-2 text-sm font-semibold whitespace-nowrap text-primary transition-colors hover:bg-secondary"
             >
               <Phone className="size-4" aria-hidden />
               {clinic.contact.phoneLabel}
@@ -92,7 +92,7 @@ export function Header() {
               href={clinic.contact.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold whitespace-nowrap text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
             >
               <MessageCircle className="size-4" aria-hidden />
               Falar com a clínica
