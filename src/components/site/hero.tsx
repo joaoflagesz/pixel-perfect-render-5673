@@ -1,139 +1,56 @@
-import { ArrowRight, MapPin, Phone, ShieldCheck, Star } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, MapPin, MessageCircle, Phone, Star } from "lucide-react";
 import { clinic } from "@/config/clinic";
-import { Container, Reveal } from "./primitives";
+import { Container } from "./primitives";
 
 export function Hero() {
   return (
-    <section
-      id="inicio"
-      className="relative overflow-hidden pt-32 pb-16 sm:pt-36 lg:pt-44 lg:pb-24"
-    >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-40 -right-24 size-[34rem] rounded-full bg-secondary/70 blur-3xl"
+    <section id="inicio" className="hero-scene relative isolate flex min-h-[700px] flex-col justify-end overflow-hidden bg-deep text-deep-foreground sm:min-h-[760px] lg:min-h-[min(850px,88svh)]">
+      <img
+        src={clinic.hero.image}
+        alt={clinic.hero.imageAlt}
+        loading="eager"
+        fetchPriority="high"
+        className="hero-photo absolute inset-0 -z-20 size-full object-cover object-[62%_center] sm:object-[center_40%]"
       />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-32 -left-32 size-[26rem] rounded-full bg-cream blur-3xl"
-      />
+      <div className="hero-shade absolute inset-0 -z-10" aria-hidden />
 
-      <Container className="relative grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
-        <Reveal>
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-card px-4 py-1.5 text-xs font-semibold tracking-wide text-primary shadow-soft">
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex size-2 animate-ping rounded-full bg-whatsapp/70" />
-              <span className="relative inline-flex size-2 rounded-full bg-whatsapp" />
-            </span>
-            Aberto agora • 24 horas, todos os dias
-          </span>
-
-          <h1 className="mt-6 text-4xl leading-[1.06] font-semibold sm:text-5xl lg:text-[3.6rem]">
-            Cuidado, carinho e dedicação em{" "}
-            <span className="text-primary">todos os momentos.</span>
+      <Container className="relative z-10 pt-44 pb-12 sm:pt-48 sm:pb-16 lg:pb-20">
+        <div className="max-w-[750px]">
+          <p className="hero-enter flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.16em] text-gold">
+            <span className="h-px w-8 bg-gold" aria-hidden />
+            Clínica Veterinária Dr. Kleber 24h
+          </p>
+          <h1 className="hero-enter hero-enter-delayed mt-6 max-w-[720px] text-[clamp(2.8rem,5.5vw,5.6rem)] leading-[1.08] font-semibold text-deep-foreground">
+            Cuidado, carinho e dedicação em <span className="text-sage">todos os momentos.</span>
           </h1>
-
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+          <p className="hero-enter hero-enter-later mt-7 max-w-[540px] text-base leading-relaxed text-deep-foreground/90 sm:text-lg">
             {clinic.hero.subtitle}
           </p>
-
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a
-              href={clinic.contact.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-4 text-sm font-semibold text-primary-foreground shadow-lift transition-transform hover:-translate-y-0.5"
-            >
-              Falar com a clínica
-              <ArrowRight
-                className="size-4 transition-transform group-hover:translate-x-0.5"
-                aria-hidden
-              />
+          <div className="hero-enter hero-enter-later mt-9 flex flex-wrap gap-3">
+            <a href={clinic.contact.whatsapp} target="_blank" rel="noopener noreferrer" className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-md bg-gold px-6 py-3.5 text-sm font-bold text-gold-foreground shadow-lift transition-all duration-300 hover:-translate-y-1 hover:bg-cream">
+              <MessageCircle className="size-4" aria-hidden /> Falar com a clínica
+              <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
             </a>
-            <a
-              href="#servicos"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/25 bg-card px-7 py-4 text-sm font-semibold text-primary transition-colors hover:bg-secondary"
-            >
-              Conhecer nossos serviços
+            <a href="#servicos" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-deep-foreground/50 bg-deep/25 px-6 py-3.5 text-sm font-semibold text-deep-foreground backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-deep/55">
+              Conhecer os serviços <ArrowDownRight className="size-4" aria-hidden />
             </a>
           </div>
-
-          <div className="mt-9 flex flex-col gap-3 text-sm sm:flex-row sm:items-center sm:gap-6">
-            <a
-              href={clinic.contact.phoneHref}
-              className="inline-flex items-center gap-2 font-semibold text-foreground transition-colors hover:text-primary"
-            >
-              <Phone className="size-4 text-primary" aria-hidden />
-              {clinic.contact.phoneLabel}
-            </a>
-            <a
-              href={clinic.address.mapsLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
-            >
-              <MapPin className="size-4 text-primary" aria-hidden />
-              {clinic.address.street} — {clinic.address.district},{" "}
-              {clinic.address.city} - {clinic.address.state}
-            </a>
-          </div>
-        </Reveal>
-
-        <Reveal delay={120} className="relative">
-          <div className="relative overflow-hidden rounded-[2rem] shadow-deep">
-            <img
-              src={clinic.hero.image}
-              alt={clinic.hero.imageAlt}
-              className="aspect-4/5 w-full object-cover sm:aspect-3/4"
-              loading="eager"
-            />
-            <div
-              aria-hidden
-              className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-deep/70 to-transparent"
-            />
-            <div className="absolute inset-x-4 bottom-4 flex items-center gap-3 rounded-2xl bg-card/95 p-4 shadow-lift backdrop-blur">
-              <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary text-primary">
-                <ShieldCheck className="size-5" aria-hidden />
-              </span>
-              <div className="text-left">
-                <p className="text-sm font-semibold">Emergência agora?</p>
-                <p className="text-xs text-muted-foreground">
-                  A equipe responde pelo WhatsApp a qualquer hora.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-4 grid grid-cols-3 gap-3">
-            <div className="surface-card px-4 py-4 text-center">
-              <p className="font-display text-xl font-semibold text-primary">
-                24h
-              </p>
-              <p className="mt-1 text-[0.7rem] text-muted-foreground">
-                todos os dias
-              </p>
-            </div>
-            <div className="surface-card px-4 py-4 text-center">
-              <p className="flex items-center justify-center gap-1 font-display text-xl font-semibold text-primary">
-                {clinic.reviews.rating}
-                <Star className="size-4 fill-gold text-gold" aria-hidden />
-              </p>
-              <p className="mt-1 text-[0.7rem] text-muted-foreground">
-                no Google
-              </p>
-            </div>
-            <div className="surface-card px-4 py-4 text-center">
-              <p className="font-display text-xl font-semibold text-primary">
-                {clinic.reviews.count}
-              </p>
-              <p className="mt-1 text-[0.7rem] text-muted-foreground">
-                avaliações
-              </p>
-            </div>
-          </div>
-        </Reveal>
+        </div>
+        <div className="mt-14 grid gap-5 border-t border-deep-foreground/30 pt-6 text-sm sm:grid-cols-[1fr_1.7fr_1fr] sm:items-center lg:mt-20">
+          <a href={clinic.contact.phoneHref} className="group flex items-center gap-3 transition-colors hover:text-gold">
+            <Phone className="size-5 shrink-0 text-gold" aria-hidden />
+            <span><span className="block text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-sage">Plantão 24 horas</span><strong className="font-semibold">{clinic.contact.phoneLabel}</strong></span>
+          </a>
+          <a href={clinic.address.mapsLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 transition-colors hover:text-gold">
+            <MapPin className="size-5 shrink-0 text-gold" aria-hidden />
+            <span><span className="block text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-sage">Em Boa Vista — RR</span>{clinic.address.street}, {clinic.address.district}</span>
+          </a>
+          <a href={clinic.reviews.profileLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 transition-colors hover:text-gold">
+            <Star className="size-5 shrink-0 fill-gold text-gold" aria-hidden />
+            <span><span className="block text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-sage">Avaliações no Google</span><strong className="font-semibold">{clinic.reviews.rating}</strong> · {clinic.reviews.count} avaliações</span>
+          </a>
+        </div>
       </Container>
-
-      <div aria-hidden className="mt-16 h-px w-full hairline-gold lg:mt-24" />
     </section>
   );
 }
