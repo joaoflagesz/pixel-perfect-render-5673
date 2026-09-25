@@ -46,8 +46,8 @@ export function Header() {
         className={cn(
           "transition-all duration-500",
           scrolled
-            ? "border-b border-border/70 bg-background/85 shadow-soft backdrop-blur-xl"
-            : "bg-transparent",
+            ? "border-b border-border/70 bg-background/95 text-foreground shadow-soft backdrop-blur-xl"
+            : "bg-deep/60 text-deep-foreground backdrop-blur-md",
         )}
       >
         <Container className="flex h-16 items-center justify-between gap-4 lg:h-[4.5rem]">
@@ -61,8 +61,8 @@ export function Header() {
             />
             <span className="font-display text-sm leading-tight font-semibold sm:text-base">
               Dr. Kleber
-              <span className="ml-1 text-primary">24H</span>
-              <span className="block text-[0.65rem] font-normal tracking-[0.16em] text-muted-foreground uppercase">
+              <span className={cn("ml-1", scrolled ? "text-primary" : "text-gold")}>24H</span>
+              <span className={cn("block text-[0.65rem] font-normal tracking-[0.16em] uppercase", scrolled ? "text-muted-foreground" : "text-deep-foreground/80")}>
                 Clínica Veterinária
               </span>
             </span>
@@ -73,7 +73,7 @@ export function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="relative text-sm font-medium whitespace-nowrap text-foreground/75 transition-colors hover:text-primary"
+                className={cn("relative text-sm font-medium whitespace-nowrap transition-colors hover:text-gold", scrolled ? "text-foreground/80 hover:text-primary" : "text-deep-foreground/90")}
               >
                 {item.label}
               </a>
@@ -83,7 +83,7 @@ export function Header() {
           <div className="hidden items-center gap-2 lg:flex">
             <a
               href={clinic.contact.phoneHref}
-              className="inline-flex items-center gap-2 rounded-full border border-primary/25 px-4 py-2 text-sm font-semibold whitespace-nowrap text-primary transition-colors hover:bg-secondary"
+              className={cn("inline-flex items-center gap-2 rounded-md border px-4 py-2 text-sm font-semibold whitespace-nowrap transition-colors", scrolled ? "border-primary/25 text-primary hover:bg-secondary" : "border-deep-foreground/40 text-deep-foreground hover:bg-deep-foreground/10")}
             >
               <Phone className="size-4" aria-hidden />
               {clinic.contact.phoneLabel}
@@ -92,7 +92,7 @@ export function Header() {
               href={clinic.contact.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold whitespace-nowrap text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
+              className={cn("inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold whitespace-nowrap shadow-soft transition-transform hover:-translate-y-0.5", scrolled ? "bg-primary text-primary-foreground" : "bg-gold text-gold-foreground")}
             >
               <MessageCircle className="size-4" aria-hidden />
               Falar com a clínica
@@ -103,7 +103,7 @@ export function Header() {
             type="button"
             onClick={() => setOpen(true)}
             aria-label="Abrir menu"
-            className="inline-flex size-11 items-center justify-center rounded-full border border-border bg-card text-foreground lg:hidden"
+            className={cn("inline-flex size-11 items-center justify-center rounded-md border lg:hidden", scrolled ? "border-border bg-card text-foreground" : "border-deep-foreground/40 bg-deep/40 text-deep-foreground")}
           >
             <Menu className="size-5" aria-hidden />
           </button>

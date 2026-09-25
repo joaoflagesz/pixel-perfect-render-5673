@@ -5,10 +5,6 @@ import { Container, Reveal, SectionHeading } from "./primitives";
 export function Emergency() {
   return (
     <section id="emergencia" className="relative overflow-hidden bg-deep py-20 lg:py-28">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-24 left-1/2 size-[30rem] -translate-x-1/2 rounded-full bg-primary/40 blur-3xl"
-      />
       <Container className="relative">
         <Reveal>
           <SectionHeading
@@ -47,7 +43,7 @@ export function Emergency() {
           </a>
         </Reveal>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-0 border-y border-deep-foreground/20 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { icon: MapPin, label: "Endereço", value: clinic.address.full },
             { icon: Phone, label: "Telefone", value: clinic.contact.phoneLabel },
@@ -55,7 +51,7 @@ export function Emergency() {
             { icon: CreditCard, label: "Pagamento", value: clinic.payments },
           ].map((item, i) => (
             <Reveal key={item.label} delay={i * 80}>
-              <div className="h-full rounded-2xl border border-deep-foreground/12 bg-deep-foreground/6 p-5">
+              <div className="h-full border-b border-deep-foreground/15 p-5 sm:border-r lg:border-b-0">
                 <span className="inline-flex size-9 items-center justify-center rounded-full bg-gold/15 text-gold">
                   <item.icon className="size-4" aria-hidden />
                 </span>
