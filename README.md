@@ -1,24 +1,17 @@
-# Pixel Perfect
+# Gestão de Peças Automotivas
 
-Implement exactly the screenshot and nothing else
+Sistema de gestão de estoque para oficina, com React, TypeScript, TanStack Start, Tailwind CSS e Supabase.
 
-This project was built with [Lovable](https://lovable.dev).
+## Configuração
 
-## Build with Lovable
+1. Crie um projeto no Supabase.
+2. Execute o SQL de `supabase/migrations/001_initial_schema.sql` no SQL Editor.
+3. Crie um bucket privado chamado `part-photos` (a migration também documenta as políticas necessárias).
+4. Copie `.env.example` para `.env` e informe a URL e a chave anon/public do Supabase.
+5. Execute `npm install` e `npm run dev`.
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/821ca347-2312-41cd-98b4-4403d500bdf4).
+A chave service_role nunca deve ser colocada no navegador. O app usa somente a chave anon/public e políticas RLS.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+## Estado da implementação
 
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+A base inclui autenticação Supabase, isolamento multiempresa por RLS, cadastro de peças, aplicações veiculares, galeria de fotos no Storage, movimentações de estoque e painel alimentado pelos dados persistidos. Os demais módulos previstos no documento devem ser entregues em etapas incrementais e testados antes de uso em produção.
